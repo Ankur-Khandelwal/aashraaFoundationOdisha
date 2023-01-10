@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <script data-ezscrex='false' data-cfasync='false'
+        data-pagespeed-no-defer>var __ez = __ez || {}; __ez.stms = Date.now(); __ez.evt = {}; __ez.script = {}; __ez.ck = __ez.ck || {}; __ez.template = {}; __ez.template.isOrig = true; __ez.queue = function () { var e = 0, i = 0, t = [], n = !1, s = [], r = [], o = !0, a = function (e, i, n, s, r, o, a) { var l = this; this.name = e, this.funcName = i, this.parameters = null === n ? null : n instanceof Array ? n : [n], this.isBlock = s, this.blockedBy = r, this.deleteWhenComplete = o, this.isError = !1, this.isComplete = !1, this.isInitialized = !1, this.proceedIfError = a, this.isTimeDelay = !1, this.process = function () { u("... func = " + e), l.isInitialized = !0, l.isComplete = !0, u("... func.apply: " + e); var i = l.funcName.split("."), n = null; i.length > 3 || (n = 3 === i.length ? window[i[0]][i[1]][i[2]] : 2 === i.length ? window[i[0]][i[1]] : window[l.funcName]), null != n && n.apply(null, this.parameters), !0 === l.deleteWhenComplete && delete t[e], !0 === l.isBlock && (u("----- F'D: " + l.name), f()) } }, l = function (e, i, t, n, s, r, o) { var a = this; this.name = e, this.path = i, this.async = s, this.defer = r, this.isBlock = t, this.blockedBy = n, this.isInitialized = !1, this.isError = !1, this.isComplete = !1, this.proceedIfError = o, this.isTimeDelay = !1, this.isPath = function (e) { return "/" === e[0] && "/" !== e[1] }, this.getSrc = function (e) { return void 0 !== window.__ezScriptHost && this.isPath(e) ? window.__ezScriptHost + e : e }, this.process = function () { a.isInitialized = !0, u("... file = " + e); var i = document.createElement("script"); i.src = this.getSrc(this.path), !0 === s ? i.async = !0 : !0 === r && (i.defer = !0), i.onerror = function () { u("----- ERR'D: " + a.name), a.isError = !0, !0 === a.isBlock && f() }, i.onreadystatechange = i.onload = function () { var e = i.readyState; u("----- F'D: " + a.name), e && !/loaded|complete/.test(e) || (a.isComplete = !0, !0 === a.isBlock && f()) }, document.getElementsByTagName("head")[0].appendChild(i) } }, c = function (e, i) { this.name = e, this.path = "", this.async = !1, this.defer = !1, this.isBlock = !1, this.blockedBy = [], this.isInitialized = !0, this.isError = !1, this.isComplete = i, this.proceedIfError = !1, this.isTimeDelay = !1, this.process = function () { } }; function d(e) { !0 !== h(e) && 0 != o && e.process() } function h(e) { if (!0 === e.isTimeDelay && !1 === n) return u(e.name + " blocked = TIME DELAY!"), !0; if (e.blockedBy instanceof Array) for (var i = 0; i < e.blockedBy.length; i++) { var s = e.blockedBy[i]; if (!1 === t.hasOwnProperty(s)) return u(e.name + " blocked = " + s), !0; if (!0 === e.proceedIfError && !0 === t[s].isError) return !1; if (!1 === t[s].isComplete) return u(e.name + " blocked = " + s), !0 } return !1 } function u(e) { var i = window.location.href, t = new RegExp("[?&]ezq=([^&#]*)", "i").exec(i); "1" === (t ? t[1] : null) && console.debug(e) } function f() { ++e > 200 || (u("let's go"), m(s), m(r)) } function m(e) { for (var i in e) if (!1 !== e.hasOwnProperty(i)) { var t = e[i]; !0 === t.isComplete || h(t) || !0 === t.isInitialized || !0 === t.isError ? !0 === t.isError ? u(t.name + ": error") : !0 === t.isComplete ? u(t.name + ": complete already") : !0 === t.isInitialized && u(t.name + ": initialized already") : t.process() } } return window.addEventListener("load", (function () { setTimeout((function () { n = !0, u("TDELAY -----"), f() }), 5e3) }), !1), { addFile: function (e, i, n, o, a, c, h, u) { var f = new l(e, i, n, o, a, c, h); !0 === u ? s[e] = f : r[e] = f, t[e] = f, d(f) }, addDelayFile: function (e, i) { var n = new l(e, i, !1, [], !1, !1, !0); n.isTimeDelay = !0, u(e + " ...  FILE! TDELAY"), r[e] = n, t[e] = n, d(n) }, addFunc: function (e, n, o, l, c, h, u, f, m) { !0 === h && (e = e + "_" + i++); var p = new a(e, n, o, l, c, u, f); !0 === m ? s[e] = p : r[e] = p, t[e] = p, d(p) }, addDelayFunc: function (e, i, n) { var s = new a(e, i, n, !1, [], !0, !0); s.isTimeDelay = !0, u(e + " ...  FUNCTION! TDELAY"), r[e] = s, t[e] = s, d(s) }, items: t, processAll: f, setallowLoad: function (e) { o = e }, markLoaded: function (e) { if (e && 0 !== e.length) { if (e in t) { var i = t[e]; !0 === i.isComplete ? u(i.name + " " + e + ": error loaded duplicate") : (i.isComplete = !0, i.isInitialized = !0) } else t[e] = new c(e, !0); u("markLoaded dummyfile: " + t[e].name) } }, logWhatsBlocked: function () { for (var e in t) !1 !== t.hasOwnProperty(e) && h(t[e]) } } }(); __ez.evt.add = function (e, t, n) { e.addEventListener ? e.addEventListener(t, n, !1) : e.attachEvent ? e.attachEvent("on" + t, n) : e["on" + t] = n() }, __ez.evt.remove = function (e, t, n) { e.removeEventListener ? e.removeEventListener(t, n, !1) : e.detachEvent ? e.detachEvent("on" + t, n) : delete e["on" + t] }; __ez.script.add = function (e) { var t = document.createElement("script"); t.src = e, t.async = !0, t.type = "text/javascript", document.getElementsByTagName("head")[0].appendChild(t) }; __ez.dot = {}; !function () { var e; __ez.vep = (e = [], { Add: function (i, t) { __ez.dot.isDefined(i) && __ez.dot.isValid(t) && e.push({ type: "video", video_impression_id: i, domain_id: __ez.dot.getDID(), t_epoch: __ez.dot.getEpoch(0), data: __ez.dot.dataToStr(t) }) }, Fire: function () { if (void 0 === document.visibilityState || "prerender" !== document.visibilityState) { if (__ez.dot.isDefined(e) && e.length > 0) for (; e.length > 0;) { var i = 5; i > e.length && (i = e.length); var t = e.splice(0, i), o = __ez.dot.getURL("/detroitchicago/grapefruit.gif") + "?orig=" + (!0 === __ez.template.isOrig ? 1 : 0) + "&v=" + btoa(JSON.stringify(t)); __ez.dot.Fire(o) } e = [] } } }) }();</script>
+    <script data-ezscrex='false' data-cfasync='false' data-pagespeed-no-defer></script>
+    <!-- basic -->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <!-- site metas -->
+    <title>Aashraa</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/favicon_io/site.webmanifest">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css" />
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800|Poppins:400,600,700,800&amp;display=swap"
+        rel="stylesheet" />
+    <!-- owl stylesheets -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen" />
+    <!-- <link rel='canonical' href='https://html.design/demo/givelife/index.html' /> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">var ezouid = "1";</script>
+    <!-- <base href="https://html.design/demo/givelife/index.html"> -->
+    <script type='text/javascript'>
+        var ezoTemplate = 'old_site_noads';
+        if (typeof ezouid == 'undefined') {
+            var ezouid = 'none';
+        }
+        var ezoFormfactor = '1';
+        var ezo_elements_to_check = Array();
+    </script><!-- START EZHEAD -->
+    <script data-ezscrex="false" type='text/javascript'>
+        var soc_app_id = '0';
+        var did = 317139;
+        var ezdomain = '/';
+        var ezoicSearchable = 1;
+    </script>
+    <!--{jquery}-->
+    <!-- END EZHEAD -->
+    <script data-ezscrex="false" type="text/javascript"
+        data-cfasync="false">var _ezaq = { "ad_cache_level": 0, "ad_lazyload_version": 0, "ad_load_version": 0, "city": "Bhubaneswar", "country": "IN", "days_since_last_visit": -1, "domain_id": 317139, "engaged_time_visit": 24, "ezcache_level": 2, "ezcache_skip_code": 0, "form_factor_id": 1, "framework_id": 1, "is_return_visitor": false, "is_sitespeed": 0, "last_page_load": "1672146769953", "last_pageview_id": "c851a201-f21a-4265-5767-226ac95f336e", "lt_cache_level": 0, "metro_code": 0, "page_ad_positions": "", "page_view_count": 12, "page_view_id": "2ee83ef0-2c9f-4e5c-5d2b-d7f37f58567b", "position_selection_id": 0, "postal_code": "752119", "pv_event_count": 0, "response_size_orig": 30956, "response_time_orig": 4, "serverid": "54.255.220.98:29520", "state": "OR", "t_epoch": 1672146773, "template_id": 120, "time_on_site_visit": 209, "url": "https://html.design/demo/givelife/index.html", "user_id": 0, "word_count": 1142, "worst_bad_word_level": 0 }; var _ezExtraQueries = "&ez_orig=1";</script>
+    <script data-ezscrex='false' data-pagespeed-no-defer data-cfasync='false'>
+        function create_ezolpl(pvID, rv) {
+            var d = new Date();
+            d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            __ez.ck.setByCat("ezux_lpl_317139=" + new Date().getTime() + "|" + pvID + "|" + rv + "; " + expires, 3);
+        }
+        function attach_ezolpl(pvID, rv) {
+            if (document.readyState === "complete") {
+                create_ezolpl(pvID, rv);
+            }
+            if (window.attachEvent) {
+                window.attachEvent("onload", create_ezolpl, pvID, rv);
+            } else {
+                if (window.onload) {
+                    var curronload = window.onload;
+                    var newonload = function (evt) {
+                        curronload(evt);
+                        create_ezolpl(pvID, rv);
+                    };
+                    window.onload = newonload;
+                } else {
+                    window.onload = create_ezolpl.bind(null, pvID, rv);
+                }
+            }
+        }
+
+        __ez.queue.addFunc("attach_ezolpl", "attach_ezolpl", ["2ee83ef0-2c9f-4e5c-5d2b-d7f37f58567b", "false"], false, ['/detroitchicago/boise.js'], true, false, false, false);
+    </script>
+    <script
+        type="text/javascript">var _audins_dom = "html_design", _audins_did = 317139; __ez.queue.addFile('/detroitchicago/cmbv2.js', '/detroitchicago/cmbv2.js?gcb=195-0&cb=04-3y02-8y06-13y07-2y19-7y0b-6y0d-21y13-4y17-5y1d-4y22-3y30-4y5a-2&cmbcb=117&sj=x04x02x06x07x19x0bx0dx13x17x1dx22x30x5a&abt=PositionCalculator', true, [], true, false, true, false);</script>
+    <script type="text/javascript"
+        defer>__ez.queue.addFile('/detroitchicago/cmbdv2.js', '/detroitchicago/cmbdv2.js?gcb=195-0&cb=03-8y0c-6y18-5&cmbcb=117&sj=x03x0cx18&abt=PositionCalculator', true, ['/detroitchicago/cmbv2.js'], true, false, true, false);</script>
+</head>
+
+<body>
+    <!-- header top section start -->
+    <div class="header_top_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="header_top_main">
+                        <div class="call_text"><a href="#"><img src="images/map-icon.png" /><span
+                                    class="padding_15">ADDRESS : Bhubaneswar</span></a></div>
+                        <div class="call_text"><a href="tel:+916372940709"><img src="images/call-icon.png" /><span
+                                    class="padding_15">CALL : +91 6372940709</span></a></div>
+                        <div class="call_text"><a href="mailto:aashraafoundationodisha@gmail.com"><img
+                                    src="images/mail-icon.png" /><span class="padding_15">EMAIL : <span
+                                        class="__cf_email__"
+                                        data-cfemail="5b3f3e36341b3c363a323775383436">aashraafoundationodisha</span></span></a>
+                        </div>
+                        <div class="social_icon_top">
+                            <ul>
+                                <li><a href="https://www.facebook.com/aashraafoundationodisha/" target="_blank"><i
+                                            class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.instagram.com/aashraafoundation_odisha/" target="_blank"><i
+                                            class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- header top section start -->
+    <!-- header section start -->
+    <div class="header_section">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="logo"><a href="index.html"><img src="images/logo.png" /></a></div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about_section">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#causes_section_id">Causes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#gallery_section">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#team_section">Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact_section_id">Contact</a>
+
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <div class="donate_bt"><a href="index.html">Donate Now</a></div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- header section end -->
+    <!-- banner section start -->
+    <div class="banner_section layout_padding">
+        <!-- <div class="black_overlay"> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="banner_taital_main">
+                        <div id="main_slider" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <h1 class="banner_taital">Aashraa <br />Foundation</h1>
+                                    <p class="also_text">An organization born from a desire to create change for
+                                        those
+                                        struggling against the tide of poverty, found in such concentration within
+                                        slums.</p>
+                                    <div class="btn_main">
+                                        <div class="started_text active"><a href="#">Donate Now</a></div>
+                                        <div class="started_text"><a href="#about_section">About Us</a></div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <h1 class="banner_taital">We Can <br />Help The Poor </h1>
+                                    <p class="also_text">Editors now use Lorem Ipsum as their default model text,
+                                        and a
+                                        search for &#39;lorem ipsum&#39; will uncover many web sites still in their
+                                        infancy</p>
+                                    <div class="btn_main">
+                                        <div class="started_text active"><a href="#">Donate Now</a></div>
+                                        <div class="started_text"><a href="#">About Us</a></div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <h1 class="banner_taital">We Can <br />Help The Poor </h1>
+                                    <p class="also_text">Editors now use Lorem Ipsum as their default model text,
+                                        and a
+                                        search for &#39;lorem ipsum&#39; will uncover many web sites still in their
+                                        infancy</p>
+                                    <div class="btn_main">
+                                        <div class="started_text active"><a href="#">Donate Now</a></div>
+                                        <div class="started_text"><a href="#">About Us</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+                                <i class="fa fa-arrow-left"></i>
+                            </a>
+                            <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+                                <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+    <!-- banner section end -->
+    <!-- about sectuion start -->
+    <div class="about_section layout_padding" id="about_section">
+        <div class="container">
+            <div class="row about-row">
+                <div class="col-md-6">
+                    <div class="about_img"><img src="images/child-with-flag.png" /></div>
+                    <!-- <div class="about_main">
+                        <div class="about_box">
+                            <div class="user_icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+                        </div>
+                        <div class="about_box_1">
+                            <div class="user_icon">$</div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="col-md-6">
+                    <h1 class="about_taital">About <span style="color: #fc9f32">Us</span></h1>
+                    <p class="about_text">Aashraa Foundation's first volunteers were struck by a surprising truth when
+                        visiting some of Bhubaneswar's poorest communities. <span style="font-weight: 600">Children as
+                            young as five were learning how to make less than a penny in street crime, begging and
+                            litter-picking; when every passing
+                            second could be spent learning how to lift themselves from the cycle of destitution -
+                            through quality
+                            education.</span> Aashraa Foundation wants to help break this cycle, by practical programs
+                        that meet needs for shelter, food, clothing, clean water, education, medical care,
+                        sustainability, friendship, encouragement and hope. </p>
+                    <div class="read_bt_1"><a href="#">Read More</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about sectuion end -->
+    <!-- causes section start -->
+    <div class="causes_section layout_padding" id="causes_section_id">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="causes_taital">Our <span style="color: #fc9f32">Causes</span></h1>
+                    <p class="causes_text">We saw in rural areas, that the greatest need is felt among orphans,
+                        widows, refugees, the unemployed and working poor, and those who are marginalized or oppressed.
+                        Children are living in families that lack suitable parental care.<span
+                            style="font-weight: 600">The importance of
+                            strengthening families and communities to protect and take care of children is strongly
+                            advocated as families are the first line of defense for children so that they can exit from
+                            generational poverty.</span> We aim to build more relationships with friends who can support
+                        us to
+                        sustain a long- term to slum development and childcare.</p>
+                </div>
+            </div>
+            <div class="causes_section_2">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-12 col-md-4">
+                        <div class="causes_img"><img src="images/sree-child.png" /></div>
+                        <div class="box_main">
+                            <h4 class="children_text">Lending Support</h4>
+                            <p class="middle_text">We try to offer support to the poorer sections by meeting their needs
+                                for basic requirements.</p>
+                        </div>
+                        <!-- <div class="readmore_bt"><a href="#">Read More</a></div> -->
+                    </div>
+                    <div class="col-lg-4 col-sm-12 col-md-4">
+                        <div class="causes_img"><img src="images/bakul-books.png" /></div>
+                        <div class="box_main">
+                            <h4 class="children_text">Promoting Education</h4>
+                            <p class="middle_text">Education not only
+                                empowers individuals and lifts families out of poverty, but also the entire society.</p>
+                        </div>
+                        <!-- <div class="readmore_bt active"><a href="#">Read More</a></div> -->
+                    </div>
+                    <div class="col-lg-4 col-sm-12 col-md-4">
+                        <div class="causes_img"><img src="images/flags-raise.png" /></div>
+                        <div class="box_main">
+                            <h4 class="children_text">Ensuring the Rights</h4>
+                            <p class="middle_text">Protecting the rights of marginalized groups is essential for
+                                creating a more inclusive and fair society.</p>
+                        </div>
+                        <!-- <div class="readmore_bt"><a href="#">Read More</a></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- causes section end -->
+    <!-- blog section start -->
+    <!-- <div class="blog_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="blog_text">We are on a Mission to SOLVE <span
+                            style="color: #1f1f1f;">PROBLEMS</span></h1>
+                </div>
+            </div>
+            <div class="blog_section_2">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="blog_taital_main">
+                            <div class="blog_left">
+                                <div class="blog_box_main">
+                                    <div class="food_icon">
+                                        <img src="images/icon-1.png" class="image_1" />
+                                        <img src="images/icon-4.png" class="image_2" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog_right">
+                                <h3 class="water_text">Pure Water</h3>
+                                <p class="looked_text">Virginia, looked up one of the more obscure Latin words,
+                                    consectetur, from a Lorem Ipsum passage, and going through the cites of the</p>
+                            </div>
+                        </div>
+                        <div class="blog_taital_main">
+                            <div class="blog_left">
+                                <div class="blog_box_main">
+                                    <div class="food_icon">
+                                        <img src="images/blood-d.png" class="image_1" />
+                                        <img src="images/icon-5.png" class="image_2" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog_right">
+                                <h3 class="water_text">Medical Facilities</h3>
+                                <p class="looked_text">Virginia, looked up one of the more obscure Latin words,
+                                    consectetur, from a Lorem Ipsum passage, and going through the cites of the</p>
+                            </div>
+                        </div>
+                        <div class="blog_taital_main">
+                            <div class="blog_left">
+                                <div class="blog_box_main">
+                                    <div class="food_icon">
+                                        <img src="images/icon-3.png" class="image_1" />
+                                        <img src="images/icon-6.png" class="image_2" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog_right">
+                                <h3 class="water_text">Healthy Food</h3>
+                                <p class="looked_text">Virginia, looked up one of the more obscure Latin words,
+                                    consectetur, from a Lorem Ipsum passage, and going through the cites of the</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="blog_img"><img src="images/blog-img.png" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- blog section end -->
+    <!-- mission section start -->
+    <!-- <div class="mission_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="mission_taital">Our Mission</h1>
+                    <p class="mission_text">There are many variations of passages of Lorem Ipsum available, but the
+                        majority have suffered alteration in some form, by injected humour</p>
+                    <div class="video_bt">
+                        <div class="play_icon"><img src="images/play-icon.png" /></div>
+                    </div>
+                    <div class="seemore_bt"><a href="#">See More</a></div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- mission section end -->
+
+    <!-- gallery section start -->
+    <div class="contact_section layout_padding" style="margin-bottom: 60px;" id="gallery_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="contact_taital">Gallery</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="container">
+                    <div class="row row-margin-20">
+                        <div class="col-md-4">
+                            <img src="gallery/1.png" class="img-fluid" alt="Image 1">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="gallery/2.png" class="img-fluid" alt="Image 2">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="gallery/3.png" class="img-fluid" alt="Image 3">
+                        </div>
+                    </div>
+                    <div class="row row-margin-20">
+                        <div class="col-md-4">
+                            <img src="gallery/4.png" class="img-fluid" alt="Image 4">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="gallery/5.png" class="img-fluid" alt="Image 5">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="gallery/6.png" class="img-fluid" alt="Image 6">
+                        </div>
+                    </div>
+                    <div class="row row-margin-20">
+                        <div class="col-md-4">
+                            <img src="gallery/7.png" class="img-fluid" alt="Image 7">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="gallery/8.png" class="img-fluid" alt="Image 8">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="gallery/9.png" class="img-fluid" alt="Image 9">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- gallery section end -->
+
+    <!-- team section start -->
+    <div class="causes_section layout_padding" id="team_section" style="display: flex; justify-content: center; align-items: center; margin-bottom: 50px;">
+        <div class="container" style="margin: 20px 0;">
+            <div class="row">
+                <div class="col-sm-12" style="text-align: center;">
+                    <h1 class="contact_taital">The <span style="color: #fc9f32;">Team</span></h1>
+                </div>
+            </div>
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <img src="images/team.png" alt="team">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- team section end -->
+
+    <!-- contact section start -->
+    <div class="contact_section layout_padding" id="contact_section_id">
+        <div class="container">
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-12">
+                    <h1 class="contact_taital">Get In <span style="color: #fc9f32;">Touch</span></h1>
+                    <!-- <div class="contact_text">We Can Help The Poor</div> -->
+                </div>
+            </div>
+            &nbsp;&nbsp;
+            <div class="contact_section_2">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mail_section map_form_container">
+                            <div class="contact_details">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4>Contact Number: <span style="color: #ff8800;">+916372940709</span></h4>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h4>Email: <span style="color: #ff8800;">aashraafoundationodisha@gmail.com</span></h4>
+                                    </div>
+                                    <div class="col-md-12" style="text-align: center;">
+                                        <h4>Address: <span style="color: #ff8800;">LB-9, BADAGADA BRIT COLONY, BHUBANESWAR, ODISHA - 751018</span></h4>
+                                    </div>
+                                    <!-- <div class="col-md-6">
+                                        <input type="text" class="mail_text" placeholder="Donation" name="Donation" />
+                                    </div> -->
+                                </div>
+                                <!-- <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment"
+                                    name="Massage"></textarea>
+                                <div class="btn_main">
+                                    <div class="send_bt active"><a href="#">Send Now</a></div>
+                                </div> -->
+                            </div>
+                            <div class="map_main map_container">
+                                <div class="map-responsive">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3743.1914155147033!2d85.8491056!3d20.250894700000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a19a1412cbaa70d%3A0x982c5582b01fabe5!2saashraa%20foundaton%20odisha!5e0!3m2!1sen!2sin!4v1673071901266!5m2!1sen!2sin"
+                                        width="600" height="368" frameborder="0" style="border:0; width: 100%;"
+                                        allowfullscreen=""></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact section end -->
+    <!-- donatior section start -->
+    <!-- <div class="donatior_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="donatior_taital">What Says <span style="color: #fc9f32;">Donatiors</span></h1>
+                </div>
+            </div>
+            <div id="my_slider" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="donatior_section_2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="lorem_text">Embarrassing hidden in the middle of text. All the Lorem Ipsum
+                                        generators on the Internet tend to repeat predefined chunks as necessary, making
+                                        this the first true generator on the Internet. It uses a dictionary of over 200
+                                        Latin words, combined with a handfulembarrassing hidden in the middle of text.
+                                        All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks
+                                        as necessary, making this the first true generator on the Internet. It uses a
+                                        dictionary of over 200 Latin words, combined with a handful</p>
+                                    <div class="client_img"><img src="images/client-img1.png" /></div>
+                                    <h3 class="client_name">first true genera</h3>
+                                    <p class="repeat_text">Internet tend to repeat</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="lorem_text">Embarrassing hidden in the middle of text. All the Lorem Ipsum
+                                        generators on the Internet tend to repeat predefined chunks as necessary, making
+                                        this the first true generator on the Internet. It uses a dictionary of over 200
+                                        Latin words, combined with a handfulembarrassing hidden in the middle of text.
+                                        All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks
+                                        as necessary, making this the first true generator on the Internet. It uses a
+                                        dictionary of over 200 Latin words, combined with a handful</p>
+                                    <div class="client_img"><img src="images/client-img2.png" /></div>
+                                    <h3 class="client_name">first true genera</h3>
+                                    <p class="repeat_text">Internet tend to repeat</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="donatior_section_2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="lorem_text">Embarrassing hidden in the middle of text. All the Lorem Ipsum
+                                        generators on the Internet tend to repeat predefined chunks as necessary, making
+                                        this the first true generator on the Internet. It uses a dictionary of over 200
+                                        Latin words, combined with a handfulembarrassing hidden in the middle of text.
+                                        All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks
+                                        as necessary, making this the first true generator on the Internet. It uses a
+                                        dictionary of over 200 Latin words, combined with a handful</p>
+                                    <div class="client_img"><img src="images/client-img1.png" /></div>
+                                    <h3 class="client_name">first true genera</h3>
+                                    <p class="repeat_text">Internet tend to repeat</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="lorem_text">Embarrassing hidden in the middle of text. All the Lorem Ipsum
+                                        generators on the Internet tend to repeat predefined chunks as necessary, making
+                                        this the first true generator on the Internet. It uses a dictionary of over 200
+                                        Latin words, combined with a handfulembarrassing hidden in the middle of text.
+                                        All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks
+                                        as necessary, making this the first true generator on the Internet. It uses a
+                                        dictionary of over 200 Latin words, combined with a handful</p>
+                                    <div class="client_img"><img src="images/client-img2.png" /></div>
+                                    <h3 class="client_name">first true genera</h3>
+                                    <p class="repeat_text">Internet tend to repeat</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="donatior_section_2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="lorem_text">Embarrassing hidden in the middle of text. All the Lorem Ipsum
+                                        generators on the Internet tend to repeat predefined chunks as necessary, making
+                                        this the first true generator on the Internet. It uses a dictionary of over 200
+                                        Latin words, combined with a handfulembarrassing hidden in the middle of text.
+                                        All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks
+                                        as necessary, making this the first true generator on the Internet. It uses a
+                                        dictionary of over 200 Latin words, combined with a handful</p>
+                                    <div class="client_img"><img src="images/client-img1.png" /></div>
+                                    <h3 class="client_name">first true genera</h3>
+                                    <p class="repeat_text">Internet tend to repeat</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="lorem_text">Embarrassing hidden in the middle of text. All the Lorem Ipsum
+                                        generators on the Internet tend to repeat predefined chunks as necessary, making
+                                        this the first true generator on the Internet. It uses a dictionary of over 200
+                                        Latin words, combined with a handfulembarrassing hidden in the middle of text.
+                                        All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks
+                                        as necessary, making this the first true generator on the Internet. It uses a
+                                        dictionary of over 200 Latin words, combined with a handful</p>
+                                    <div class="client_img"><img src="images/client-img2.png" /></div>
+                                    <h3 class="client_name">first true genera</h3>
+                                    <p class="repeat_text">Internet tend to repeat</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div> -->
+    <!-- donatior section end -->
+    <!-- news section start -->
+    <!-- <div class="news_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="donatior_taital">Our <span style="color: #fc9f32;">News</span></h1>
+                </div>
+            </div>
+            <div class="news_section_2">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="news_img"><img src="images/news-img.png" /></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="news_taital_main">
+                            <h3 class="news_text">True generator on the Internet. It uses a </h3>
+                            <p class="dummy_text">Embarrassing hidden in the middle of text. All the Lorem Ipsum
+                                generators on the Internet tend to repeat predefined chunks as necessary, making this
+                                the first true generator on the Internet. It uses a dictionary of over 200 Latin words,
+                                combined with a handfulembarrassing hidden in the middle of text. All the Lorem Ipsum
+                                generators on the Internet tend to repeat predefined chunks as necessary, making this
+                                the first true generator on the Internet. It uses a dictionary of over 200 Latin words,
+                                combined with a handful</p>
+                            <div class="readmore_bt_1"><a href="#">Read More</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- news section end -->
+    <!-- footer section start -->
+    <div class="footer_section layout_padding" style="margin-top: 40px;">
+        <div class="container">
+            <div class="footer_section_2">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <h2 class="useful_text">About<span class="border_left15"><img src="images/border.png" /></span>
+                        </h2>
+                        <p class="shop_text"> An organization born from a desire to create change for those struggling against the tide of poverty, found in such concentration within slums. </p>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <h2 class="useful_text"> Updates<span class="border_left15"><img
+                                    src="images/border.png" /></span></h2>
+                        <p class="footer_text">Looking for support from generous people like you to further our purpose.</p>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <h2 class="useful_text">Options<span class="border_left15"><img
+                                    src="images/border.png" /></span></h2>
+                        <div class="footer_menu">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="#about_section">About Us</a></li>
+                                <li><a href="#causes_section_id">Causes</a></li>
+                                <li><a href="#gallery_section">Gallery</a></li>
+                                <li><a href="#contact_section_id">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <h2 class="useful_text">Key Solutions<span class="border_left15"><img
+                                    src="images/border.png" /></span></h2>
+                        <!-- <div class="form-group">
+                            <textarea class="update_mail" placeholder="Email" rows="5" id="comment"
+                                name="Email"></textarea>
+                            <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+                        </div> -->
+                        <div class="footer_menu">
+                            <ul>
+                                <li> - Enthusiastic Children</li>
+                                <li> - Formidable Women</li>
+                                <li> - Enlightened Men</li>
+                                <br/>
+                                <li>Contact Us to discuss more...</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="social_icon">
+                <ul>
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <!-- <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- footer section end -->
+    <!-- copyright section start -->
+    <div class="copyright_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="copyright_text">© 2023 All Rights Reserved.</br><span style="font-size: 0.2rem">Design by <a href="https://html.design">Free
+                        html Templates</a></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/custom.js"></script>
+
+    <include id="includedContent"></include>
+    <script>
+        $(function () {
+            $("#includedContent").load("../htmlads.html");
+        });
+    </script>
+
+
+    <script type='text/javascript' style='display:none;' async>
+    </script>
+
+    <script type="text/javascript" data-cfasync="false"></script>
+</body>
+
+</html>
